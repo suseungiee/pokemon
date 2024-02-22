@@ -1,0 +1,59 @@
+[versions]
+coreKtx= "1.12.0"
+appCompat = "1.6.1"
+material = "1.11.0"
+constraintlayout = "2.1.4"
+androidxNavigation = "2.7.7"
+daggerHilt = "2.50"
+daggerHiltCompiler = "2.48.1"
+androidApplication = "8.2.0"
+kotlinAndroid = "1.9.10"
+kotlin = "1.9.10"
+kotlinxCoroutines = "1.7.3"
+androidGradlePlugin = "8.1.4"
+coil = "2.5.0"
+retrofit2 = "2.9.0"
+retrofit2KotlinSerialization = "1.0.0"
+okhttp3 = "4.12.0"
+kotlinSerializationJson = "1.6.2"
+kotlinSerialization = "1.9.10"
+paging = "3.2.1"
+
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidxNavigation" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHiltCompiler" }
+hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "daggerHilt"}
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerializationJson" }
+retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
+retrofit2-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinSerialization" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
+okhttp-url-connection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp3" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3" }
+paging = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+paging-common = { group = "androidx.paging", name = "paging-common-ktx", version.ref = "paging" }
+
+
+[bundles]
+navigation = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx"]
+retrofit2 = ["retrofit2", "retrofit2-serialization"]
+okhttp3 = ["okhttp", "okhttp-url-connection", "okhttp-logging-interceptor"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidApplication" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroid" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+android-library = { id = "com.android.library", version.ref = "androidApplication" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization" }
