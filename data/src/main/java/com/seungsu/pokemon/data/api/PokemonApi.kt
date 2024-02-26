@@ -7,19 +7,13 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 internal interface PokemonApi {
-
-    @GET("v2/pokemon/{id}")
-    suspend fun getPokemonInfoById(
-        @Path("id") id: Int
-    ): PokemonResponse
-
     @GET("v2/pokemon/{name}")
     suspend fun getPokemonInfoByName(
         @Path("name") name: String
     ): PokemonResponse
 
     @GET("v2/pokemon/")
-    suspend fun getPokemonNames(
+    suspend fun getPokemons(
         @Query("offset") offset: Int,
         @Query("limit") pageSize: Int
     ): PokemonNamesResponse

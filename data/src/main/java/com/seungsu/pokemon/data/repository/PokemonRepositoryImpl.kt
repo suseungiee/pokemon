@@ -8,9 +8,6 @@ import javax.inject.Inject
 internal class PokemonRepositoryImpl @Inject constructor(
     private val pokemonRemoteDataSource: PokemonRemoteDataSource
 ): PokemonRepository {
-    override suspend fun getPokemonInfoById(id: Int): PokemonEntity {
-        return pokemonRemoteDataSource.getPokemonInfoById(id)
-    }
 
     override suspend fun getPokemonInfoByName(name: String): PokemonEntity {
         return pokemonRemoteDataSource.getPokemonInfoByName(name)

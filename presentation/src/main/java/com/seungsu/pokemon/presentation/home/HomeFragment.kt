@@ -75,6 +75,6 @@ class HomeFragment: MVIFragment<
 
     override fun processEffect(effect: HomeEffect) = when(effect) {
         is HomeEffect.NavigateToDetail ->
-            findNavController().safeNavigate(HomeFragmentDirections.actionHomeFragmentToDetail(effect.id))
+            findNavController().safeNavigate(HomeFragmentDirections.actionHomeFragmentToDetail(effect.name))
     }
 }

@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.seungsu.pokemon.domain.base.ApiResult
 import com.seungsu.pokemon.domain.base.asResult
-import com.seungsu.pokemon.domain.usecase.GetPokemonInfoByIdUseCase
+import com.seungsu.pokemon.domain.usecase.GetPokemonInfoByNameUseCase
 import com.seungsu.pokemon.presentation.base.MVIViewModel
 import com.seungsu.pokemon.presentation.model.toUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,14 +16,14 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val getPokemonInfoByIdUseCase: GetPokemonInfoByIdUseCase,
+    private val getPokemonInfoByNameUseCase: GetPokemonInfoByNameUseCase,
     private val savedStateHandle: SavedStateHandle,
 ) : MVIViewModel<DetailIntent, DetailState, DetailEffect>() {
-    private val pokemonId
-        get() = savedStateHandle.get<Int>(KEY_POKEMON_ID) ?: -1
+    private val pokemonName
+        get() = savedStateHandle.get<String>(KEY_POKEMON_NAME) ?: ""
 
     private val detailResult = loadDataSignal
-        .flatMapLatest { getPokemonInfoByIdUseCase(pokemonId).asResult() }
+        .flatMapLatest { getPokemonInfoByNameUseCase(pokemonName).asResult() }
         .stateIn(viewModelScope, SharingStarted.Lazily, ApiResult.Loading)
 
     init {
@@ -46,6 +46,6 @@ class DetailViewModel @Inject constructor(
     }
 
     companion object {
-        private const val KEY_POKEMON_ID = "pokemon_id"
+        private const val KEY_POKEMON_NAME = "pokemon_name"
     }
 }

@@ -11,7 +11,7 @@ import com.seungsu.pokemon.presentation.databinding.HolderPokemonItemBinding
 import com.seungsu.pokemon.presentation.model.Pokemon
 
 class PokemonAdapter(
-    private val onItemClickListener: (Int) -> Unit
+    private val onItemClickListener: (String) -> Unit
 ): PagingDataAdapter<Pokemon, PokemonViewHolder>(diffUtil) {
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it) }
@@ -48,7 +48,7 @@ class PokemonAdapter(
 
 class PokemonViewHolder(
     private val binding: HolderPokemonItemBinding,
-    private val onItemClickListener: (Int) -> Unit
+    private val onItemClickListener: (String) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: Pokemon) {
         with(binding) {
@@ -58,7 +58,7 @@ class PokemonViewHolder(
                 text = item.detail
                 isVisible = item.detail.isNotEmpty()
             }
-            root.setOnClickListener { onItemClickListener(item.id) }
+            root.setOnClickListener { onItemClickListener(item.name) }
         }
     }
 }

@@ -15,7 +15,7 @@
         android:id="@+id/detailFragment"
         android:name="com.seungsu.pokemon.presentation.detail.DetailFragment" >
         <argument
-            android:name="pokemon_id"
-            app:argType="integer" />
+            android:name="pokemon_name"
+            app:argType="string" />
     </fragment>
 </navigation>

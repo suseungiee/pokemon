@@ -8,7 +8,7 @@ import com.seungsu.pokemon.presentation.model.Pokemon
 sealed interface HomeIntent: ViewIntent {
 
     @JvmInline
-    value class OnClickPokemon(val id: Int): HomeIntent
+    value class OnClickPokemon(val name: String): HomeIntent
 
 }
 
@@ -19,5 +19,5 @@ data class HomeState(
 
 sealed interface HomeEffect: ViewEffect {
     @JvmInline
-    value class NavigateToDetail(val id: Int): HomeEffect
+    value class NavigateToDetail(val name: String): HomeEffect
 }

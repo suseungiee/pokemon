@@ -24,10 +24,10 @@ class HomeViewModel @Inject constructor(
     override fun createInitialState() = HomeState()
 
     override fun proecessIntent(intent: HomeIntent) = when(intent) {
-        is HomeIntent.OnClickPokemon -> navigateToDetail(intent.id)
+        is HomeIntent.OnClickPokemon -> navigateToDetail(intent.name)
     }
 
-    private fun navigateToDetail(id: Int) = currentState {
-        setEffect(HomeEffect.NavigateToDetail(id))
+    private fun navigateToDetail(name: String) = currentState {
+        setEffect(HomeEffect.NavigateToDetail(name))
     }
 }
