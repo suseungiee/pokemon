@@ -3,6 +3,7 @@ package com.seungsu.pokemon.data.repository.remote
 import com.seungsu.pokemon.data.api.PokemonApi
 import com.seungsu.pokemon.data.model.toDomain
 import com.seungsu.pokemon.domain.model.PokemonEntity
+import com.seungsu.pokemon.domain.model.SimplePokemonEntity
 import javax.inject.Inject
 
 internal class PokemonRemoteDataSourceImpl @Inject constructor(
@@ -13,9 +14,9 @@ internal class PokemonRemoteDataSourceImpl @Inject constructor(
         return pokemonApi.getPokemonInfoByName(name).toDomain()
     }
 
-    override suspend fun getPokemons(offset: Int, pageSize: Int): List<PokemonEntity> {
+    override suspend fun getPokemons(offset: Int, pageSize: Int): List<SimplePokemonEntity> {
         val pokemonResults = pokemonApi.getPokemons(offset, pageSize).results
-        val pokemons = mutableListOf<PokemonEntity>()
+        val pokemons = mutableListOf<SimplePokemonEntity>()
             pokemonResults.map {
                 pokemons.add(it.toDomain())
         }

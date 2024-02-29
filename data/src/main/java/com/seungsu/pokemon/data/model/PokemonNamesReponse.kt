@@ -1,6 +1,6 @@
 package com.seungsu.pokemon.data.model
 
-import com.seungsu.pokemon.domain.model.PokemonEntity
+import com.seungsu.pokemon.domain.model.SimplePokemonEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -15,14 +15,13 @@ internal data class SimplePokemonResponse(
     @SerialName("url") val infoUrl: String
 )
 
-internal fun SimplePokemonResponse.toDomain(): PokemonEntity {
+internal fun SimplePokemonResponse.toDomain(): SimplePokemonEntity {
     val id = infoUrl.split("/")
         .dropLast(1)
         .last().toInt()
-    return PokemonEntity(
+    return SimplePokemonEntity(
         id = id,
         name = name,
-        detail = "",
-        imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png",
+        imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png"
     )
 }

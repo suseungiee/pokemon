@@ -6,7 +6,9 @@ data class Pokemon(
     val id: Int,
     val imageUrl: String,
     val name: String,
-    val detail: String
+    val weight: Int = 0,
+    val height: Int = 0,
+    val types: List<String> = emptyList()
 )
 
 fun PokemonEntity.toUiModel(): Pokemon {
@@ -14,6 +16,8 @@ fun PokemonEntity.toUiModel(): Pokemon {
         id = id,
         imageUrl = imageUrl,
         name = name,
-        detail = detail
+        weight = weight,
+        height = height,
+        types = types
     )
 }

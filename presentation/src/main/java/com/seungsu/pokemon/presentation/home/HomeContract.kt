@@ -3,7 +3,7 @@ package com.seungsu.pokemon.presentation.home
 import com.seungsu.pokemon.presentation.base.ViewEffect
 import com.seungsu.pokemon.presentation.base.ViewIntent
 import com.seungsu.pokemon.presentation.base.ViewState
-import com.seungsu.pokemon.presentation.model.Pokemon
+import com.seungsu.pokemon.presentation.model.SimplePokemon
 
 sealed interface HomeIntent: ViewIntent {
 
@@ -14,7 +14,7 @@ sealed interface HomeIntent: ViewIntent {
 
 data class HomeState(
     val message: String = "",
-    val pokemons: List<Pokemon> = emptyList()
+    val pokemons: List<SimplePokemon> = emptyList()
 ): ViewState
 
 sealed interface HomeEffect: ViewEffect {

@@ -7,7 +7,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.seungsu.pokemon.domain.annotation.IoDispatcher
 import com.seungsu.pokemon.domain.base.FlowUseCase
-import com.seungsu.pokemon.domain.model.PokemonEntity
+import com.seungsu.pokemon.domain.model.SimplePokemonEntity
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -15,14 +15,14 @@ import kotlinx.coroutines.flow.Flow
 class GetPokemonsUseCase @Inject constructor(
     private val pokemonRepository: PokemonRepository,
     @IoDispatcher ioDispatcher: CoroutineDispatcher
-) : FlowUseCase<Unit, PagingData<PokemonEntity>>(ioDispatcher) {
-    override fun execute(params: Unit): Flow<PagingData<PokemonEntity>> = Pager(
+) : FlowUseCase<Unit, PagingData<SimplePokemonEntity>>(ioDispatcher) {
+    override fun execute(params: Unit): Flow<PagingData<SimplePokemonEntity>> = Pager(
         config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = true)
     ) {
-        object: PagingSource<Int, PokemonEntity>() {
-            override fun getRefreshKey(state: PagingState<Int, PokemonEntity>): Int? = null
+        object: PagingSource<Int, SimplePokemonEntity>() {
+            override fun getRefreshKey(state: PagingState<Int, SimplePokemonEntity>): Int? = null
 
-            override suspend fun load(loadParams: LoadParams<Int>): LoadResult<Int, PokemonEntity> {
+            override suspend fun load(loadParams: LoadParams<Int>): LoadResult<Int, SimplePokemonEntity> {
                 val page = loadParams.key ?: 0
                 return try {
                     pokemonRepository.getPokemons(page * PAGE_SIZE, PAGE_SIZE).let {

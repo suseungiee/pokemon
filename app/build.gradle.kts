@@ -14,6 +14,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.bundles.navigation)
+    implementation(libs.androidx.activity.compose)
 
     implementation(project(":presentation"))
     implementation(project(":data"))

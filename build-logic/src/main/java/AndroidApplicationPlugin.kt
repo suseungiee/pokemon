@@ -32,6 +32,14 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
                         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
                     }
                 }
+
+                buildFeatures {
+                    compose = true
+                }
+
+                composeOptions {
+                    kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
+                }
             }
 
             dependencies {

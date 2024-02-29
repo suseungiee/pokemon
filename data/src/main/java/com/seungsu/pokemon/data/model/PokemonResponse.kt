@@ -8,19 +8,28 @@ import kotlinx.serialization.Serializable
 internal data class PokemonResponse(
     @SerialName("name") val name: String,
     @SerialName("id") val id: Int,
-    @SerialName("sprites") val sprities: SpritiesResponse
+    @SerialName("weight") val weight: Int,
+    @SerialName("height") val height: Int,
+    @SerialName("types") val types: List<PokemonTypeResponse>
 )
 
 @Serializable
-internal data class SpritiesResponse(
-    @SerialName("front_default") val imageUrl: String
+internal data class PokemonTypeResponse(
+    @SerialName("type") val type: SimpleTypeResponse
+)
+
+@Serializable
+internal data class SimpleTypeResponse(
+    @SerialName("name") val typeName: String
 )
 
 internal fun PokemonResponse.toDomain(): PokemonEntity {
     return PokemonEntity(
         id = id,
         name = name,
-        detail = "",
-        imageUrl = sprities.imageUrl
+        imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png",
+        weight = weight,
+        height = height,
+        types = types.map { it.type.typeName }
     )
 }
