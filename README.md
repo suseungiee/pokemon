@@ -14,7 +14,6 @@
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - construct the REST APIs and paging network data.
 - [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) - A modern JSON library for Kotlin
 - [Coil](https://github.com/coil-kt/coil) - loading images.
-- [Compose]() - presentation layer
   
 ## Architecture
 Based on MVI, Clean Architecture and a repository pattern.
