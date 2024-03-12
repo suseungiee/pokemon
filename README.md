@@ -17,7 +17,9 @@
   
 ## Architecture
 Based on MVI, Clean Architecture and a repository pattern.
-<img width="563" alt="image" src="https://github.com/suseungiee/pokemon/assets/52225690/a6c78e63-b871-4d5b-949e-dbf78477c078">
+
+<img width="570" alt="image" src="https://github.com/suseungiee/pokemon/assets/52225690/5832cbc0-5fa1-435d-bfc0-f863ee0c0053">
+
 
 | record |
 :-:|
